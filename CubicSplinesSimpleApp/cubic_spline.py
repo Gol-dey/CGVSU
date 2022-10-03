@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class CubicSpline:
     def __init__(self, x, y):
         self.b, self.c, self.d = [], [], []
