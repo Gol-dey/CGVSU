@@ -11,7 +11,7 @@ public class DrawPanel extends JPanel implements ActionListener {
     private Timer timer;
     private int ticksFromStart = 0;
 
-    private Amogus amogus;
+    private Figure figure;
 
     public DrawPanel(final int width, final int height, final int timerDelay) {
         this.PANEL_WIDTH = width;
@@ -20,15 +20,15 @@ public class DrawPanel extends JPanel implements ActionListener {
         timer = new Timer(timerDelay, this);
         timer.start();
 
-        this.amogus = new Amogus(200, 200, 50, 50, Color.RED);
+        this.figure= new Figure(100, 100, 380, 150, Color.RED);
     }
 
     @Override
     public void paint(final Graphics gr) {
         super.paint(gr);
-        amogus.setX(ticksFromStart);
-        amogus.setY(getY());
-        amogus.draw(gr);
+       // figure.setX(ticksFromStart);
+       // figure.setY();
+
     }
 
     @Override
@@ -37,5 +37,13 @@ public class DrawPanel extends JPanel implements ActionListener {
             repaint();
             ++ticksFromStart;
         }
+    }
+    @Override
+    public void paintComponent(Graphics gr){
+        Graphics2D graphics2D = (Graphics2D) gr;
+        Plane plane = new Plane(338,35,1,1,Color.black);
+        Plane plane2 = new Plane(338,500,1,1,Color.black);
+        plane.draw(graphics2D);
+        plane2.draw(graphics2D);
     }
 }
